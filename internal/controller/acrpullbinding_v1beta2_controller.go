@@ -165,6 +165,7 @@ func NewV1beta2Reconciler(opts *V1beta2ReconcilerOpts) *PullBindingReconciler {
 				updated := binding.DeepCopy()
 				updated.Status.TokenExpirationTime = &metav1.Time{Time: expiry}
 				updated.Status.LastTokenRefreshTime = &metav1.Time{Time: refresh}
+				updated.Status.Error = ""
 				return updated
 			},
 			now: opts.now,
